@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SignIn from './Auth/SignIn';
 import SignUp from './Auth/SignUp';
-import Layout from './shared/Layout/Layout';
+import { Layout } from './shared/Layout/Layout';
 
 export default function App() {
     return (
@@ -16,8 +16,8 @@ export default function App() {
                 </Route>
                 <Route exact={true} path="/">
                     <Layout>
-                        Hello Alex!
-                 </Layout>
+                        <p>Hello world</p>
+                    </Layout>
                 </Route>
                 <Route path="*">
                     404
