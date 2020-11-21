@@ -1,0 +1,22 @@
+.divider {
+    display: flex;
+}
+
+.divider:before, .divider:after {
+    content: "";
+    flex: 1;
+}
+
+.line {
+    align-items: center;
+    margin: 1em -1em;
+}
+
+.line:before, .line:after {
+    height: 1px;
+    margin: 0 1em;
+}
+
+.one-line:before, .one-line:after {
+    background: lightgray;
+}
