@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 export const AuthLayout: React.FC = ({ children }) => {
     return (
         <div className="bg-gray-100 min-h-screen flex">

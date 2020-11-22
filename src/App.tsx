@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import SignIn from './Auth/SignIn';
-import SignUp from './Auth/SignUp';
-import { Layout } from './shared/Layout/Layout';
+import SignIn from './components/Auth/SignIn';
+import SignUp from './components/Auth/SignUp';
+import Home from './components/Home/Home';
 
 export default function App() {
     return (
@@ -14,15 +14,13 @@ export default function App() {
                 <Route path="/signin">
                     <SignIn />
                 </Route>
-                <Route exact={true} path="/">
-                    <Layout>
-                        <p>Hello world</p>
-                    </Layout>
+                <Route exact={true} path="/" >
+                    <Home />
                 </Route>
                 <Route path="*">
                     404
                 </Route>
             </Switch>
-        </BrowserRouter>
+        </BrowserRouter >
     );
 }
