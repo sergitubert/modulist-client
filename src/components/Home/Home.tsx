@@ -11,7 +11,7 @@ export default function Home() {
     // Filter logic
     const getSuggestions = async (value: string) => {
         const inputValue = value.trim().toLowerCase();
-        let response = await fetch(`https://api.npms.io/v2/search/suggestions?q=${inputValue}&size=10`);
+        let response = await fetch(`https://api.npms.io/v2/search/suggestions?q=${inputValue}&size=8`);
         let data = await response.json()
         return data;
     };
