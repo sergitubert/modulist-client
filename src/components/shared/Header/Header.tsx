@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Logo } from '../../ui/Logo';
 
 export default function Header() {
     return (
         <React.Fragment>
             <header className="flex justify-between px-8 py-6">
-                <div>Logo</div>
+                <Logo />
                 <div>
                     <nav>
                         <Link to="/signin" className="hover:text-gray-600">
