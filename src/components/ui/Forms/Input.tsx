@@ -5,6 +5,6 @@ type Props = {
 
 export const Input: React.FC<Props> = ({ ...props }) => {
     return (
-        <input type="text" className="py-4 px-6 w-full focus:border-indigo-600 hover:indigo-500" {...props} />
+        <input type="text" className="py-4 px-6 w-full focus:outline-none focus:ring-indigo-600 focus:ring-1 rounded-full" {...props} />
     );
 }
