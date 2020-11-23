@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SignIn from './components/Auth/SignIn';
 import SignUp from './components/Auth/SignUp';
 import Home from './components/Home/Home';
-import { PackageInfo } from './components/PackageInfo/PackageInfo';
+import { PackagePage } from './components/PackageInfo/PackagePage';
 
 export default function App() {
     return (
@@ -18,7 +18,7 @@ export default function App() {
                 <Route exact={true} path="/" >
                     <Home />
                 </Route>
-                <Route path="/:name" component={PackageInfo}></Route>
+                <Route path="/:name" component={PackagePage}></Route>
                 <Route path="*">
                     404
                 </Route>

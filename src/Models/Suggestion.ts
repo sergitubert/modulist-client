@@ -1,4 +1,4 @@
-export interface Package {
+interface Package {
     name: string;
     description: string;
     version: string;

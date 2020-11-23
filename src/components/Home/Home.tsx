@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { Suggestion } from '../../Models/npm-io';
+import { Suggestion } from '../../Models/Suggestion';
 import { Layout } from '../shared/Layout/Layout';
 import { AutoSuggest } from '../ui/Forms/AutoSuggest';
 import { SuggestionItem } from './SuggestionItem';
 
 export default function Home() {
     const [value, setvalue] = useState('');
-    const [suggestions, setsuggestions] = useState([]);
+    const [suggestions, setsuggestions] = useState<Suggestion[]>([]);
 
     // Filter logic
     const getSuggestions = async (value: string) => {
         const inputValue = value.trim().toLowerCase();
-        let response = await fetch(`https://api.npms.io/v2/search/suggestions?q=${inputValue}&size=8`);
-        let data = await response.json()
-        return data;
+        const response = await fetch(`https://api.npms.io/v2/search/suggestions?q=${inputValue}&size=8`);
+        return await response.json();
     };
 
     // Trigger suggestions
