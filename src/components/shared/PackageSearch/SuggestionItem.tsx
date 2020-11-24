@@ -14,7 +14,7 @@ export const SuggestionItem = ({ description, highlight, version, name }: Props)
             <div className="flex justify-between p-2">
                 <div className="w-full">
                     <p dangerouslySetInnerHTML={{ __html: highlight }} />
-                    <p className="hidden lg:block truncate overflow-ellipsis overflow-hidden text-gray-400">{description}</p>
+                    <p className="hidden lg:block truncate text-gray-400">{description}</p>
                 </div>
                 <div className="flex items-center">
                     <p>{version}</p>

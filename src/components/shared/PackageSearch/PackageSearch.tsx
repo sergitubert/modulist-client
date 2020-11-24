@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Suggestion } from '../../../Models/Suggestion';
-import { SuggestionItem } from '../../Home/SuggestionItem';
 import { AutoSuggest } from '../../ui/Forms/AutoSuggest';
+import { SuggestionItem } from './SuggestionItem';
 import './theme.css';
 
 export const PackageSearch = () => {
@@ -57,7 +57,7 @@ export const PackageSearch = () => {
         placeholder: 'Search...',
         value,
         onChange: onChange,
-        className: 'py-4 px-6 w-full focus:outline-none focus:ring-gray-400 focus:ring-1 rounded-full'
+        className: 'py-4 px-6 w-full border focus:outline-none focus:ring-gray-400 focus:ring-1 rounded-full'
     };
 
     return (

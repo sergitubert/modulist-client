@@ -5,20 +5,22 @@ import { Logo } from '../../ui/Logo';
 export default function Header() {
     return (
         <React.Fragment>
-            <header className="flex justify-between px-8 py-6">
-                <Logo />
-                <div>
-                    <nav>
-                        <Link to="/signin" className="hover:text-gray-600">
+            <header className="px-8 py-4">
+                <nav className="flex justify-between">
+                    <div className="self-center">
+                        <Logo />
+                    </div>
+                    <div>
+                        <Link to="/signin" className="hover:text-gray-600 mr-4">
                             Sign In
-                    </Link>
-                        <Link to="/signup" className="bg-indigo-900 text-indigo-100 rounded-lg px-4 py-2 hover:bg-indigo-700 ml-4">
+                        </Link>
+                        <Link to="/signup" className="inline-block bg-indigo-500 hover:bg-indigo-400 focus:outline-none focus:shadow-outline active:bg-indigo-600 text-white px-5 py-3 rounded-lg text-sm shadow-lg uppercase tracking-wider font-semibold sm:text-base">
                             Sign Up
-                    </Link>
-                    </nav>
-                </div>
+                        </Link>
+                    </div>
+                </nav>
             </header>
             <hr />
-        </React.Fragment>
+        </React.Fragment >
     );
 }
