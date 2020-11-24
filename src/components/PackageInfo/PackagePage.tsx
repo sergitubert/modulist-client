@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { PackageInfo } from '../../Models/PackageInfo';
 import { Layout } from '../shared/Layout/Layout';
+import { PackageSearch } from '../shared/PackageSearch/PackageSearch';
 import { MarkdownRenderer } from './MarkdownRenderer';
 
 export const PackagePage = () => {
@@ -24,7 +25,10 @@ export const PackagePage = () => {
         <Layout>
             <div className="max-w-full mt-8">
                 <div className="mx-2 md:mx-32">
-                    <MarkdownRenderer markdown={packageInfo?.collected.metadata.readme || ''} />
+                    <PackageSearch />
+                    <div className="mt-6">
+                        <MarkdownRenderer markdown={packageInfo?.collected.metadata.readme || ''} />
+                    </div>
                 </div>
             </div>
         </Layout>
