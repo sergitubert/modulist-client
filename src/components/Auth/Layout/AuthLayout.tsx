@@ -18,11 +18,10 @@ export const AuthLayout: React.FC = ({ children }) => {
                 </div>
             </div>
             <div className="w-full md:w-2/3">
-                <div className="p-12 flex items-center flex-col">
+                <div className="p-12 flex items-center flex-col h-full">
                     <div className="flex flex-col flex-start">
                         {children}
                     </div>
-
                 </div>
             </div>
         </div>
