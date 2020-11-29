@@ -5,7 +5,7 @@ import { userStore } from '../../../utils/cookie';
 
 const SignedInHeader = () => {
     const history = useHistory();
-    const { user, change, setUser } = userStore()
+    const { user, setHasUser, setUser } = userStore()
 
     useEffect(() => {
 
@@ -14,16 +14,16 @@ const SignedInHeader = () => {
                 const response = await fetch(`/auth/google/user`);
                 const userResponse: User = await response.json();
                 if (response.status !== 200) throw new Error();
-                change(true)
+                setHasUser(true)
                 setUser(userResponse);
             } catch (error) {
-                change(false);
+                setHasUser(false);
                 history.replace('/')
             }
         }
 
         checkUser();
-    }, [change, setUser, history]);
+    }, [setHasUser, setUser, history]);
 
     return (
         <div>{user?.name} {user?.surname}</div>

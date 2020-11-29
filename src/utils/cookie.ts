@@ -13,14 +13,14 @@ export const getCookie = (name: string) => {
 type UserStore = {
     hasUser: boolean;
     user: User | null;
-    change: (has: boolean) => void;
+    setHasUser: (has: boolean) => void;
     setUser: (newUser: User) => void;
 }
 export const userStore = create<UserStore>((set) => ({
     hasUser: getCookie(COOKIE_NAME),
     user: null,
     setUser: (newUser) => set(() => ({ user: newUser })),
-    change: (has) => set(() => ({ hasUser: has })),
+    setHasUser: (has) => set(() => ({ hasUser: has })),
 }));
 
 
