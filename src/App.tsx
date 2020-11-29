@@ -1,13 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import SignIn from './components/Auth/SignIn';
 import SignUp from './components/Auth/SignUp';
 import Home from './components/Home/Home';
 import { PackagePage } from './components/PackageInfo/PackagePage';
 
 export default function App() {
+
+
     return (
-        <BrowserRouter>
+        <React.Fragment>
             <Switch>
                 <Route path="/signup">
                     <SignUp />
@@ -23,6 +25,6 @@ export default function App() {
                     404
                 </Route>
             </Switch>
-        </BrowserRouter >
+        </React.Fragment>
     );
 }
