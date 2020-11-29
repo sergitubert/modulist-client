@@ -22,6 +22,7 @@ type Props = {
 export const MarkdownRenderer = ({ markdown }: Props) => {
     return (
         <ReactMarkdown
+            escapeHtml={false}
             className="prose"
             renderers={{ heading: HeadingRenderer, }}
             plugins={[gfm]}
