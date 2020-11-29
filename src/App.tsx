@@ -4,23 +4,20 @@ import SignIn from './components/Auth/SignIn';
 import SignUp from './components/Auth/SignUp';
 import Home from './components/Home/Home';
 import { PackagePage } from './components/PackageInfo/PackagePage';
+import Profile from './components/Profile/Profile';
+import { Layout } from './components/shared/Layout/Layout';
 
 export default function App() {
-
-
     return (
         <React.Fragment>
             <Switch>
-                <Route path="/signup">
-                    <SignUp />
-                </Route>
-                <Route path="/signin">
-                    <SignIn />
-                </Route>
-                <Route exact={true} path="/" >
-                    <Home />
-                </Route>
-                <Route path="/package/:name" component={PackagePage}></Route>
+                <Route path="/signup" component={SignUp} />
+                <Route path="/signin" component={SignIn} />
+                <Layout>
+                    <Route exact={true} path="/" component={Home} />
+                    <Route path="/profile" component={Profile} />
+                    <Route path="/package/:name" component={PackagePage} />
+                </Layout>
                 <Route path="*">
                     404
                 </Route>
