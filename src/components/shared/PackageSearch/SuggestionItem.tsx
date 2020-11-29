@@ -9,7 +9,7 @@ type Props = {
 }
 
 export const SuggestionItem = ({ description, highlight, version, name }: Props) => (
-    <Link to={`/${name}`}>
+    <Link to={`/package/${name}`}>
         <div className="bg-gray-200  mx-6 hover:bg-gray-100 cursor-pointer">
             <div className="flex justify-between p-2">
                 <div className="w-full">

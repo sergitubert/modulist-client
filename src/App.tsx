@@ -20,7 +20,7 @@ export default function App() {
                 <Route exact={true} path="/" >
                     <Home />
                 </Route>
-                <Route path="/:name" component={PackagePage}></Route>
+                <Route path="/package/:name" component={PackagePage}></Route>
                 <Route path="*">
                     404
                 </Route>

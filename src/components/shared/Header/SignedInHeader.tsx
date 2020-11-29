@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { User } from '../../../Models/User';
 import { userStore } from '../../../utils/cookie';
+import UserInfo from './UserInfo';
 
 const SignedInHeader = () => {
     const history = useHistory();
@@ -26,7 +27,9 @@ const SignedInHeader = () => {
     }, [setHasUser, setUser, history]);
 
     return (
-        <div>{user?.name} {user?.surname}</div>
+        <React.Fragment>
+            { user && <UserInfo />}
+        </React.Fragment>
     );
 }
 

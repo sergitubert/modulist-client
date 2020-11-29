@@ -19,8 +19,6 @@ export const PackagePage = () => {
         getPackageInfo(name).then((packageInfo) => setPackageInfo(packageInfo))
     }, [name])
 
-    console.log(packageInfo);
-
     return (
         <Layout>
             <div className="max-w-full mt-8">

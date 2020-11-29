@@ -6,7 +6,6 @@ import { User } from '../Models/User';
 const COOKIE_NAME = 'userID'
 
 export const getCookie = (name: string) => {
-    console.log(cookie.get(COOKIE_NAME))
     return cookie.get(name) !== undefined;
 }
 
@@ -22,7 +21,6 @@ export const userStore = create<UserStore>((set) => ({
     setUser: (newUser) => set(() => ({ user: newUser })),
     setHasUser: (has) => set(() => ({ hasUser: has })),
 }));
-
 
 export function useHasUser() {
     return userStore(state => state.hasUser);

@@ -4,6 +4,7 @@ import useBoolean from '../../../utils/useBoolean';
 import { Logo } from '../../ui/Logo';
 import SignedInHeader from './SignedInHeader';
 import SignedOutHeader from './SignedOutHeader';
+import UserInfo from './UserInfo';
 
 export default function Header() {
 
@@ -24,18 +25,16 @@ export default function Header() {
                         </button>
                     </div>
                     <div className="hidden md:block">
-                        <div>
-                            {hasUser ? <SignedInHeader /> : <SignedOutHeader />}
-                        </div>
+                        {hasUser ? <SignedInHeader /> : <SignedOutHeader />}
                     </div>
                 </div>
 
                 {navOpen && <div className="sm:hidden py-2 px-4 flex flex-col">
                     {hasUser &&
-                        <div>
-                            <a href="" className="mb-1 px-4 rounded hover:text-gray-600 hover:bg-gray-100 font-semibold">Profile</a>
-                            <a href="" className="mb-1 px-4 rounded hover:text-gray-600 hover:bg-gray-100 font-semibold">My Lists</a>
-                        </div>
+                        <React.Fragment>
+                            <UserInfo className="px-4 mb-2" />
+                            <a href="" className="mb-2 px-4 rounded hover:text-gray-600 hover:bg-gray-100 font-semibold">My Lists</a>
+                        </React.Fragment>
                     }
                     <a href="" className="mb-1 px-4 rounded hover:text-gray-600 hover:bg-gray-100 font-semibold">Contact</a>
                 </div>}
