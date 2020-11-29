@@ -1,3 +1,4 @@
+import { formatDistance } from 'date-fns';
 import React, { useState } from 'react';
 import { Suggestion } from '../../../Models/Suggestion';
 import { AutoSuggest } from '../../ui/Forms/AutoSuggest';
@@ -19,15 +20,18 @@ export const PackageSearch = () => {
     const getSuggestionValue = (suggestion: Suggestion) => suggestion.package.name;
 
     // Render Each Option
-    const renderSuggestion = (suggestion: Suggestion) => (
-        <SuggestionItem
+    const renderSuggestion = (suggestion: Suggestion) => {
+        const since = formatDistance(new Date(), new Date(suggestion.package.date));
+        return (<SuggestionItem
             key={suggestion.package.name}
             description={suggestion.package.description}
             highlight={suggestion.highlight}
             version={suggestion.package.version}
             name={suggestion.package.name}
-        />
-    );
+            since={since}
+            exactMatch={suggestion.package.name === value}
+        />)
+    };
 
     // Suggestion rerender when user types
     const onSuggestionsFetchRequested = ({ value }: any) => {
