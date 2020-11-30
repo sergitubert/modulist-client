@@ -1,33 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
-import { useHistory } from 'react-router-dom';
-import { User } from '../../../Models/User';
+import { Link } from 'react-router-dom';
 import { userStore } from '../../../utils/cookie';
 import useBoolean from '../../../utils/useBoolean';
 import UserInfo from './UserInfo';
 
 const SignedInHeader = () => {
-    const history = useHistory();
-    const { user, setHasUser, setUser } = userStore()
+    const { user } = userStore()
     const [userDropdownOpen, { toggle, off }] = useBoolean(false);
-
-    useEffect(() => {
-
-        const checkUser = async () => {
-            try {
-                const response = await fetch(`/auth/google/user`);
-                const userResponse: User = await response.json();
-                if (response.status !== 200) throw new Error();
-                setHasUser(true)
-                setUser(userResponse);
-            } catch (error) {
-                setHasUser(false);
-                history.replace('/')
-            }
-        }
-
-        checkUser();
-    }, [setHasUser, setUser, history]);
 
     return (
         <React.Fragment>
@@ -37,15 +17,15 @@ const SignedInHeader = () => {
                     {userDropdownOpen &&
                         <OutsideClickHandler onOutsideClick={off}>
                             <div className="bg-white flex flex-col rounded-lg py-2 mt-2 shadow-md w-48 absolute right-0 ">
-                                <a href="" className="px-4 py-2 hover:bg-gray-50">Profile</a>
-                                <a href="" className="px-4 py-2 hover:bg-gray-50">My Lists</a>
-                                <a href="" className="px-4 py-2 hover:bg-gray-50">Contact</a>
+                                <p className="px-4 py-2 font-semibold capitalize tracking-wide"> Hi, {user?.name} {user?.surname}!</p>
+                                <Link to="/profile" className="px-4 mt-2 hover:text-indigo-400 text-indigo-500 font-semibold" >Profile</Link>
+                                <Link to="/" className="px-4 mt-2 hover:text-indigo-400 text-indigo-500 font-semibold">My Lists</Link>
+                                <a href="/auth/google/logout" className="px-4 mt-8">Sign Out</a>
                             </div>
                         </OutsideClickHandler>
                     }
                 </div>
             }
-
         </React.Fragment>
     );
 }
