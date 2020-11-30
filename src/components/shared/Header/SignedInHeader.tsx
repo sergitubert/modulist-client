@@ -16,7 +16,7 @@ const SignedInHeader = () => {
                     <UserInfo onClick={toggle} />
                     {userDropdownOpen &&
                         <OutsideClickHandler onOutsideClick={off}>
-                            <div className="bg-white flex flex-col rounded-lg py-2 mt-2 shadow-md w-48 absolute right-0 ">
+                            <div onClick={off} className="bg-white flex flex-col rounded-lg py-2 mt-2 shadow-md w-48 absolute right-0 ">
                                 <p className="px-4 py-2 font-semibold capitalize tracking-wide"> Hi, {user?.name} {user?.surname}!</p>
                                 <Link to="/profile" className="px-4 mt-2 hover:text-indigo-400 text-indigo-500 font-semibold" >Profile</Link>
                                 <Link to="/" className="px-4 mt-2 hover:text-indigo-400 text-indigo-500 font-semibold">My Lists</Link>
